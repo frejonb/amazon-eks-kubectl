@@ -36,5 +36,4 @@ users:
         - ${CLUSTER}
 EOF
 
-# Pass through to kubectl
-/usr/local/bin/kubectl "$@"
+"$@"
