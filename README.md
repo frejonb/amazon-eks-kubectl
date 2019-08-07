@@ -15,6 +15,13 @@ $ docker run -e CLUSTER=demo fernandorejonbarrera/eks-kubectl:v1.0.0 kubectl ver
 Client Version: version.Info{Major:"1", Minor:"13", GitVersion:"v1.13.0", GitCommit:"ddf47ac13c1a9483ea035a79cd7c10005ff21a6d", GitTreeState:"clean", BuildDate:"2018-12-03T21:04:45Z", GoVersion:"go1.11.2", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
+You can also provide AWS credentials directly by providing environment variables to docker
+```bash
+docker run -e CLUSTER=demo -e AWS_DEFAULT_REGION=<REGION> \
+    -e AWS_ACCESS_KEY_ID=<ACCESS_KEY_ID> -e AWS_SECRET_ACCESS_KEY=<SECRET_KEY> \
+    fernandorejonbarrera/eks-kubectl:v1.0.0 kubectl get pods
+```
+
 ## AWS Credentials
 
 The kubectl wrapper script used by this container uses the AWS CLI to fetch the necessary cluster details for the kube config file (api endpoint, certificate authority etc). 
