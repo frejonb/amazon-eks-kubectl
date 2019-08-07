@@ -5,19 +5,17 @@ ADD https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v
 ADD kubectl.sh /usr/local/bin/kubectl.sh
 
 RUN set -x && \
+    addgroup -g 2342 kubectl && \
+    adduser -u 2342 -G kubectl -D kubectl && \
     \
     apk add --update --no-cache curl ca-certificates python py-pip jq && \
     chmod +x /usr/local/bin/kubectl && \
     chmod +x /usr/local/bin/kubectl.sh && \
     chmod +x /usr/local/bin/aws-iam-authenticator && \
     \
-    # Create non-root user (with a randomly chosen UID/GUI).
-    adduser kubectl -Du 2342 && \
-    \
     # Install AWS CLI
     pip install --upgrade awscli && \
     # Basic check it works.
     aws --version && kubectl version --client
 
-USER kubectl
 ENTRYPOINT [ "/usr/local/bin/kubectl.sh" ]
