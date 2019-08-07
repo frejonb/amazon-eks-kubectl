@@ -11,9 +11,8 @@ The default entrypoint for this container, is a small wrapper script for `kubect
 ## Usage
 
 ```bash
-$ docker run -e CLUSTER=demo maddox/kubectl get services
-NAME            TYPE           CLUSTER-IP     EXTERNAL-IP        PORT(S)          AGE
-kubernetes      ClusterIP      10.100.0.1     <none>             443/TCP          57d
+$ docker run -e CLUSTER=demo fernandorejonbarrera/eks-kubectl:v1.0.0 kubectl version
+Client Version: version.Info{Major:"1", Minor:"13", GitVersion:"v1.13.0", GitCommit:"ddf47ac13c1a9483ea035a79cd7c10005ff21a6d", GitTreeState:"clean", BuildDate:"2018-12-03T21:04:45Z", GoVersion:"go1.11.2", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
 ## AWS Credentials
