@@ -4,6 +4,7 @@ This is a convenient docker image that contains:
 
  - kubectl (v1.15.0)
  - aws-iam-authenticator (v0.4.0)
+ - kustomize (v3.5.4)
  - AWS CLI (v1.16.213)
 
 The default entrypoint for this container, is a small wrapper script for `kubectl` that automatically populates a `~/.kube/config` with the correct EKS cluster details (endpoint, certificate authority).
