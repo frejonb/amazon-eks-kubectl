@@ -2,7 +2,7 @@
 
 This is a convenient docker image that contains:
 
- - kubectl (v1.23.0)
+ - kubectl (v1.29.0)
  - aws-iam-authenticator (v0.5.9)
  - kustomize (v4.5.7)
  - AWS CLI (v1.19.112)
